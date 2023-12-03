@@ -46,25 +46,25 @@ It also makes it possible to incorporate both item and user metadata into the tr
 
 Films watched by user:
 
-| item id |                                                 movie_title | genre                                   |   |   |   |
-|--------:|------------------------------------------------------------:|-----------------------------------------|---|---|---|
-|     181 |                                   Return of the Jedi (1983) | Action, Adventure, Romance, Sci-Fi, War |   |   |   |
-|     260 |                                        Event Horizon (1997) |       Action, Mystery, Sci-Fi, Thriller |   |   |   |
-|     320 | Paradise Lost: The Child Murders at Robin Hood Hills (1996) |                             Documentary |   |   |   |
-|     321 |                                               Mother (1996) |                                  Comedy |   |   |   |
-|     327 |                                             Cop Land (1997) |                   Crime, Drama, Mystery |   |   |   |
-|     331 |                                            Edge, The (1997) |                     Adventure, Thriller |   |   |   |
-|     340 |                                        Boogie Nights (1997) |                                   Drama |   |   |   |
-|     342 |                         Man Who Knew Too Little, The (1997) |                         Comedy, Mystery |   |   |   |
-|     346 |                                         Jackie Brown (1997) |                            Crime, Drama |   |   |   |
-|     347 |                                          Wag the Dog (1997) |                           Comedy, Drama |   |   |   |
+| item id |                                                 movie_title | genre                                   |
+|--------:|------------------------------------------------------------:|-----------------------------------------|
+|     181 |                                   Return of the Jedi (1983) | Action, Adventure, Romance, Sci-Fi, War |
+|     260 |                                        Event Horizon (1997) |       Action, Mystery, Sci-Fi, Thriller |
+|     320 | Paradise Lost: The Child Murders at Robin Hood Hills (1996) |                             Documentary |
+|     321 |                                               Mother (1996) |                                  Comedy |
+|     327 |                                             Cop Land (1997) |                   Crime, Drama, Mystery |
+|     331 |                                            Edge, The (1997) |                     Adventure, Thriller |
+|     340 |                                        Boogie Nights (1997) |                                   Drama |
+|     342 |                         Man Who Knew Too Little, The (1997) |                         Comedy, Mystery |
+|     346 |                                         Jackie Brown (1997) |                            Crime, Drama |
+|     347 |                                          Wag the Dog (1997) |                           Comedy, Drama |
 
 Recommended films:
 
-|  item id|                 movie_title     |                  genre         |   |   |
-|------------:|---------------------------:|--------------------------|---|---|
-|          12 | Usual Suspects, The (1995) |          Crime, Thriller |   |   |
-|         195 |     Terminator, The (1984) | Action, Sci-Fi, Thriller |   |   |
-|         204 |  Back to the Future (1985) |           Comedy, Sci-Fi |   |   |
-|         234 |                Jaws (1975) |           Action, Horror |   |   |
-|         258 |             Contact (1997) |            Drama, Sci-Fi |   |   |
+|  item id|                 movie_title     |                  genre |
+|------------:|---------------------------:|--------------------------|
+|          12 | Usual Suspects, The (1995) |          Crime, Thriller |
+|         195 |     Terminator, The (1984) | Action, Sci-Fi, Thriller |
+|         204 |  Back to the Future (1985) |           Comedy, Sci-Fi |
+|         234 |                Jaws (1975) |           Action, Horror |
+|         258 |             Contact (1997) |            Drama, Sci-Fi |
