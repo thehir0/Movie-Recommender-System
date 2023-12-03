@@ -40,7 +40,6 @@ It also makes it possible to incorporate both item and user metadata into the tr
 | lightFM CF           | 0.8351  | 0.1083       | 0.0775    |
 | lightFM hybrid       | 0.8417  | 0.0560       | 0.0509    |
 | lightFM hybrid tuned |      0.8474   |       0.0609       |     0.0639      |
-|                      |         |              |           |
 
 ## Example
 
