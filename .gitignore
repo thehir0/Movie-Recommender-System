@@ -1,3 +1,4 @@
 *.DS_store
 /movielens
 *.pyc
+notebooks/lightfm_hybrid copy.ipynb

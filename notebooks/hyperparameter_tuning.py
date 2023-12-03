@@ -30,6 +30,9 @@ checkpoint = 'lightFM_hybrid'
 # seed for pseudonumber generations
 SEED = 42
 
+data = pd.read_csv('data/interim/100k_clean.csv', index_col=0)
+data = data[data['rating'] > 3]
+
 def item_feature_generator(data):
     for i, row in data.iterrows():
         features = row['genre'].split(', ')
@@ -43,8 +46,7 @@ def user_feature_generator(data, user_cols):
 def objective(trial):
     item_cols = ['genre']
     user_cols = ['gender', 'occupation', 'age_group']
-    data = pd.read_csv('data/interim/100k_clean.csv', index_col=0)
-    data = data[data['rating'] > 3]
+    global data
     '''
     Parameters
     no_components (int, optional) - the dimensionality of the feature latent embeddings.
@@ -71,14 +73,12 @@ def objective(trial):
 
     random_state (int seed, RandomState instance, or None) - The seed of the pseudo random number generator to use when shuffling the data and initializing the parameters.
     '''
-    loss = trial.suggest_categorical('loss', ['bpr', 'warp'])
-    learning_schedule = trial.suggest_categorical('lr_schedule', ['adagrad', 'adadelta'])
-    LEARNING_RATE = trial.suggest_float('learning_rate', 1e-6, 0.05, log=True)
-    NO_COMPONENTS = trial.suggest_int('NO_COMPONENTS', 10, 1000)
+    loss = 'warp'
+    LEARNING_RATE = trial.suggest_categorical('learning_rate', [1, 0.5, 0.1])
+    NO_COMPONENTS = trial.suggest_categorical('no_components', [256, 512])
     NO_EPOCHS = 100
-    ITEM_ALPHA = trial.suggest_float('ITEM_ALPHA', 0.1, 10)
-    USER_ALPHA = trial.suggest_float('USER_ALPHA', 0.1, 10)
-    max_sampled = trial.suggest_int('max_sampled', 10, 100)
+    ITEM_ALPHA = 1e-6 #trial.suggest_float('ITEM_ALPHA', 0, 2, step=0.1)
+    USER_ALPHA = 1e-6 #trial.suggest_float('USER_ALPHA', 0, 2, step=0.1)
     
 
     all_item_features = list(set(itertools.chain.from_iterable([x.split(', ') for x in data['genre']])))
@@ -104,9 +104,8 @@ def objective(trial):
 
     model = LightFM(
         loss=loss,
-        learning_schedule=learning_schedule,
-        max_sampled=max_sampled,
-        no_components=NO_COMPONENTS, 
+        learning_schedule='adagrad',
+        no_components=NO_COMPONENTS,
         learning_rate=LEARNING_RATE,
         item_alpha=ITEM_ALPHA,
         user_alpha=USER_ALPHA,
