@@ -74,11 +74,11 @@ def objective(trial):
     random_state (int seed, RandomState instance, or None) - The seed of the pseudo random number generator to use when shuffling the data and initializing the parameters.
     '''
     loss = 'warp'
-    LEARNING_RATE = trial.suggest_categorical('learning_rate', [1, 0.5, 0.1])
-    NO_COMPONENTS = trial.suggest_categorical('no_components', [256, 512])
+    LEARNING_RATE = trial.suggest_categorical('learning_rate', [1, 0.5, 0.1, 0.01, 0.001, 0.0001])
+    NO_COMPONENTS = trial.suggest_categorical('no_components', [16, 64, 128, 256, 512])
     NO_EPOCHS = 100
-    ITEM_ALPHA = 1e-6 #trial.suggest_float('ITEM_ALPHA', 0, 2, step=0.1)
-    USER_ALPHA = 1e-6 #trial.suggest_float('USER_ALPHA', 0, 2, step=0.1)
+    ITEM_ALPHA = trial.suggest_categorical('item_alpha', [1e-6, 1e-5, 1e-4, 1e-3])
+    USER_ALPHA = trial.suggest_categorical('user_alpha', [1e-6, 1e-5, 1e-4, 1e-3])
     
 
     all_item_features = list(set(itertools.chain.from_iterable([x.split(', ') for x in data['genre']])))
@@ -127,7 +127,7 @@ def objective(trial):
     return test_auc
 
 study = optuna.create_study(direction='maximize')
-study.optimize(objective, n_trials=100)
+study.optimize(objective, n_trials=20)
 
 trial = study.best_trial
 
